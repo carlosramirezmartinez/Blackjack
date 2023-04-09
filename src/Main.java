@@ -21,8 +21,7 @@ public class Main {
 public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
     while(true) {
-        
-        System.out.println("Quieres jugar de nuevo? (Si o Yes(S/s o Y/y) o No(n/n))");
+        System.out.println("Quieres jugar de nuevo? (Si o Yes(S/s o Y/y) o No(n/n o cualquier tecla distinta a Si o Yes))");
         String decision = sc.nextLine().toUpperCase();
         if(decision.equals("Y") || decision.equals("S")) {
             continue;
@@ -30,8 +29,19 @@ public static void main(String[] args) {
             break;
         }
     }
+    FinJuego();
     sc.close();
-	}
 }
 
+
+
+
 //Funciones abajo
+
+private static void FinJuego() {
+    System.out.println("Partidas jugada/s: " + PartidasJugadas);
+    System.out.println("Victoria/s: " + Victorias);
+    System.out.println("Empate/s: " + Empates);
+    System.out.println("Derrota/s: " + Derrotas);
+	}
+}
