@@ -60,9 +60,31 @@ private static void empezarJuego() {
     cpu.add(cartas.get(cartas.size() - 1));
     cartas.remove(cartas.size() - 1);
     
-    
+    //Logica para las jugadas
+    boolean jugadorCogeCarta = true;
+    while(true) {
+        if(jugadorCogeCarta) {
+            jugadorCogeCarta = jugadaUsuario(jugador);
+        }
+    }
+    //Juegos
+	}
     /*Ver como comparar cartas de usuario y cpu para acabar*/
-}
+        
+        private static boolean jugadaUsuario(ArrayList<Integer> user) {
+            int sum = 0 ;
+			System.out.println("Las Cartas: " + user + ". Suman = " + sum);
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Quieres jugar de nuevo? (Si o Yes(S/s o Y/y) o No(N/n o cualquier tecla distinta a Si o Yes))");
+            while(true) {
+                String decision = sc.nextLine().toUpperCase();
+                if(decision.equals("Y") || decision.equals("S") ){
+                    return true;
+                } else {
+                    return false; 
+                }
+            }
+        }
 
 
 private static void FinJuego() {
