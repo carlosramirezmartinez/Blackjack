@@ -69,12 +69,14 @@ import java.util.Scanner;
             jugador.add(cartas.get(cartas.size() - 1));
             cartas.remove(cartas.size() - 1);
         }
+        
         if(cpuCogeCarta) {
             cpuCogeCarta = jugadaCPU(cpu);
             cpu.add(cartas.get(cartas.size() - 1));
             cartas.remove(cartas.size() - 1);
         }
-        if(!jugadorCogeCarta && !cpuCogeCarta) {
+        
+        if(!jugadorCogeCarta && !cpuCogeCarta) { //Al acabar compara
             comparaCartas(jugador, cpu);
             break;
         }
@@ -95,7 +97,7 @@ import java.util.Scanner;
 	        if(cpuSum == 22 && cpu.size() == 2) {
 	            cpuSum--;
 	        }
-	        if(jugadorSum == cpuSum ) {
+	        if(jugadorSum == cpuSum || (jugadorSum > 21 && cpuSum > 21)) {
 	            System.out.println("Empate!");
 	            Empates++;
 	        } else if(jugadorSum > cpuSum) {
@@ -141,4 +143,4 @@ import java.util.Scanner;
 		
 		
 		
-	
+	}
