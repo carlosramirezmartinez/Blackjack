@@ -66,9 +66,13 @@ import java.util.Scanner;
     while(true) {
         if(jugadorCogeCarta) {
             jugadorCogeCarta = jugadaUsuario(jugador);
+            jugador.add(cartas.get(cartas.size() - 1));
+            cartas.remove(cartas.size() - 1);
         }
         if(cpuCogeCarta) {
             cpuCogeCarta = jugadaCPU(cpu);
+            cpu.add(cartas.get(cartas.size() - 1));
+            cartas.remove(cartas.size() - 1);
         }
         if(!jugadorCogeCarta && !cpuCogeCarta) {
             comparaCartas(jugador, cpu);
@@ -137,4 +141,4 @@ import java.util.Scanner;
 		
 		
 		
-	}
+	
