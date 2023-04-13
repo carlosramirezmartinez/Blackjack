@@ -70,11 +70,39 @@ import java.util.Scanner;
         if(cpuCogeCarta) {
             cpuCogeCarta = jugadaCPU(cpu);
         }
+        if(!jugadorCogeCarta && !cpuCogeCarta) {
+            comparaCartas(jugador, cpu);
+            break;
+        }
     }
     //Juegos
 	}
     /*Ver como comparar cartas de usuario y cpu para acabar*/
         
+	 private static void comparaCartas(ArrayList<Integer> user, ArrayList<Integer> cpu) {
+	        
+	        int jugadorSum = user.stream().mapToInt(Integer::intValue).sum();
+	        int cpuSum = cpu.stream().mapToInt(Integer::intValue).sum();
+	        System.out.println("Jugador: " + user + ". sumas = " + jugadorSum);
+	        System.out.println("CPU: " + cpu + ". sumas = " + cpuSum);
+	        if(jugadorSum == 22 && user.size() == 2) {
+	            jugadorSum--;
+	        }
+	        if(cpuSum == 22 && cpu.size() == 2) {
+	            cpuSum--;
+	        }
+	        if(jugadorSum == cpuSum ) {
+	            System.out.println("Empate!");
+	            Empates++;
+	        } else if(jugadorSum > cpuSum) {
+	            System.out.println("Victoria!");
+	            Victorias++;
+	        } else {
+	            System.out.println("Derrota!");
+	            Derrotas++;
+	        }
+	    }
+	    
         private static boolean jugadaUsuario(ArrayList<Integer> user) {
         	int sum = user.stream().mapToInt(Integer::intValue).sum();
 			System.out.println("Las Cartas: " + user + ". Suman = " + sum);
