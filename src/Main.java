@@ -46,7 +46,7 @@ import java.util.Scanner;
     ArrayList<Integer> cartas = new ArrayList<>();
     
     //Juego 1 carta
-    for(int i = 0; i < 2; i++) {
+    for(int i = 0; i < 4; i++) { //4 maximo
         for(int j = 2; j < 12; j++) {
             cartas.add(j);
         }
@@ -65,31 +65,34 @@ import java.util.Scanner;
     boolean cpuCogeCarta = true;
     while(true) {
     	
-        if(jugadorCogeCarta) {
-            jugadorCogeCarta = jugadaUsuario(jugador);
-        }
-        
-        if(cpuCogeCarta) {
-            cpuCogeCarta = jugadaCPU(cpu);
-        }
-        
-        if(jugadorCogeCarta) {
-            jugador.add(cartas.get(cartas.size() - 1));
-            cartas.remove(cartas.size() - 1);
-        }
-        
-        if(cpuCogeCarta) {
-            cpu.add(cartas.get(cartas.size() - 1));
-            cartas.remove(cartas.size() - 1);
-        }
-        
-        if(!jugadorCogeCarta && !cpuCogeCarta) { //Al acabar compara
-            comparaCartas(jugador, cpu);
-            break;
-        }
-    }
-    //Juegos
+	        if(jugadorCogeCarta) {
+	            jugadorCogeCarta = jugadaUsuario(jugador);
+	        }
+	        
+	        if(cpuCogeCarta) {
+	            cpuCogeCarta = jugadaCPU(cpu);
+	        }
+	        
+	        if(jugadorCogeCarta) {
+	            jugador.add(cartas.get(cartas.size() - 1));
+	            cartas.remove(cartas.size() - 1);
+	        }
+	        
+	        if(cpuCogeCarta) {
+	            cpu.add(cartas.get(cartas.size() - 1));
+	            cartas.remove(cartas.size() - 1);
+	        }
+	        
+	        if(!jugadorCogeCarta && !cpuCogeCarta) { //Al acabar compara
+	            comparaCartas(jugador, cpu);
+	            break;
+	        	}
+    	}
+    
 	}
+	
+	
+	//Juegos
     /*Ver como comparar cartas de usuario y cpu para acabar*/
         
 	 private static void comparaCartas(ArrayList<Integer> user, ArrayList<Integer> cpu) {
@@ -134,7 +137,7 @@ import java.util.Scanner;
 
         private static boolean jugadaCPU(ArrayList<Integer> cpu) {
             int sum = cpu.stream().mapToInt(Integer::intValue).sum();
-            if((21 - sum) > 2) {
+            if((21 - sum) > 4) {
                 return true;
             } else {
                 return false;
