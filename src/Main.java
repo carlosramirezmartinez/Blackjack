@@ -100,7 +100,7 @@ import java.util.Scanner;
     /*Ver como comparar cartas de usuario y cpu para acabar*/
         
 	 private static void comparaCartas(ArrayList<Integer> user, ArrayList<Integer> cpu) {
-	        
+		 	PartidasJugadas++;
 	        int jugadorSum = user.stream().mapToInt(Integer::intValue).sum();
 	        int cpuSum = cpu.stream().mapToInt(Integer::intValue).sum();
 	        System.out.println("Jugador: " + user + ". suma = " + jugadorSum);
