@@ -64,14 +64,21 @@ import java.util.Scanner;
     boolean jugadorCogeCarta = true;
     boolean cpuCogeCarta = true;
     while(true) {
+    	
         if(jugadorCogeCarta) {
             jugadorCogeCarta = jugadaUsuario(jugador);
+        }
+        
+        if(cpuCogeCarta) {
+            cpuCogeCarta = jugadaCPU(cpu);
+        }
+        
+        if(jugadorCogeCarta) {
             jugador.add(cartas.get(cartas.size() - 1));
             cartas.remove(cartas.size() - 1);
         }
         
         if(cpuCogeCarta) {
-            cpuCogeCarta = jugadaCPU(cpu);
             cpu.add(cartas.get(cartas.size() - 1));
             cartas.remove(cartas.size() - 1);
         }
