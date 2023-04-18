@@ -54,7 +54,11 @@ import java.util.Scanner;
     
     Collections.shuffle(cartas, new Random());
     
-    //Partida con 2 cartas
+    //Partida con 4 cartas cpu
+    jugador.add(cartas.get(cartas.size() - 1));
+    cartas.remove(cartas.size() - 1);
+    cpu.add(cartas.get(cartas.size() - 1));
+    cartas.remove(cartas.size() - 1);
     jugador.add(cartas.get(cartas.size() - 1));
     cartas.remove(cartas.size() - 1);
     cpu.add(cartas.get(cartas.size() - 1));
@@ -99,8 +103,8 @@ import java.util.Scanner;
 	        
 	        int jugadorSum = user.stream().mapToInt(Integer::intValue).sum();
 	        int cpuSum = cpu.stream().mapToInt(Integer::intValue).sum();
-	        System.out.println("Jugador: " + user + ". sumas = " + jugadorSum);
-	        System.out.println("CPU: " + cpu + ". sumas = " + cpuSum);
+	        System.out.println("Jugador: " + user + ". suma = " + jugadorSum);
+	        System.out.println("CPU: " + cpu + ". suma = " + cpuSum);
 	        if(jugadorSum == 22 && user.size() == 2) {
 	            jugadorSum--;
 	        }
@@ -110,7 +114,7 @@ import java.util.Scanner;
 	        if(jugadorSum == cpuSum || (jugadorSum > 21 && cpuSum > 21)) {
 	            System.out.println("Empate!");
 	            Empates++;
-	        } else if(jugadorSum > cpuSum) {
+	        } else if((jugadorSum > cpuSum && (jugadorSum <= 21 && cpuSum <= 21)) || (jugadorSum <= 21 && cpuSum > 21)) {
 	            System.out.println("Victoria!");
 	            Victorias++;
 	        } else {
